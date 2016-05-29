@@ -6,7 +6,7 @@ Ecust自动评教源码
 1.0.0
 
 ##使用方法
-纯Python :    python pj.py YOUR_IDxYOUR_PW
+纯Python :  `python pj.py YOUR_IDxYOUR_PW`
 
 服务器   :  PHP服务器下直接访问index.html  
 
