@@ -44,7 +44,6 @@ def pj_normal(href):
 				br.form["yq" + str(i)] = [values[0].attrib['value']]
 			else:
 				break
-			z = z + 1
 	br.submit()
 	print "OK"
 			
@@ -63,14 +62,12 @@ br.set_handle_robots(False)
 
 login_url = "http://pjb.ecust.edu.cn/pingce/login.php"
 p = s.post(login_url, {'action':"login", 'sno':user_id,'password':user_pw})
-txt1 = p.text
 o = s.get("http://pjb.ecust.edu.cn/pingce/list.php")
-txt2 = o.text
+if o.url != "http://pjb.ecust.edu.cn/pingce/list.php" :
+	exit()
 o.encoding = "gbk"
 txt = o.text.encode("gbk")
 
-if txt1 != txt2 :
-	exit()
 
 html = etree.HTML(txt)
 hrefs = html.xpath("//tr[@class='row']/td[@class='subject']/a")
