@@ -2,6 +2,7 @@ import requests
 from lxml import etree
 import mechanize
 import urllib2
+import sys
 
 def pj_ty(href):
 	response = br.open(href)
@@ -29,7 +30,6 @@ def pj_bds(href):
 	br.submit()
 	print "OK"
 
-
 def pj_normal(href):
 	response = br.open(href)
 	br.select_form(name="Form1")
@@ -50,19 +50,27 @@ def pj_normal(href):
 br = mechanize.Browser()
 s = requests.Session()
 
+user_info = sys.argv[1].split("x")
+user_id = user_info[0]
+user_pw = user_info[1]
+
 #options
 br.set_handle_equiv(True)
-br.set_handle_gzip(True)
 br.set_handle_redirect(True)
 br.set_handle_referer(True)
 br.set_handle_robots(False)
 
 login_url = "http://pjb.ecust.edu.cn/pingce/login.php"
-p = s.post(login_url, {'action':"login", 'sno':"10142045",'password':"101535"})
+p = s.post(login_url, {'action':"login", 'sno':user_id,'password':user_pw})
+txt1 = p.text
 o = s.get("http://pjb.ecust.edu.cn/pingce/list.php")
+txt2 = o.text
 o.encoding = "gbk"
 txt = o.text.encode("gbk")
-# print txt
+
+if txt1 != txt2 :
+	exit()
+
 html = etree.HTML(txt)
 hrefs = html.xpath("//tr[@class='row']/td[@class='subject']/a")
 
@@ -79,3 +87,5 @@ for href in hrefs:
 		pj_bds(pj_href)
 	else:
 		pj_normal(pj_href)
+
+print 'Successful'
