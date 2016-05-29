@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="format-detection" content="telephone=no">
+	<meta name="msapplication-tap-highlight" content="no">
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+	<title>OneKey PJ</title>
+	<link rel="stylesheet" href="//cdn.bootcss.com/weui/0.4.2/style/weui.min.css"/>
+	<link rel="stylesheet" href="//cdn.bootcss.com/jquery/3.0.0-alpha1/jquery.min.js"/>
+</head>
+<body>
+<div class="weui_cells_title">表单</div>
+<div class="weui_cells weui_cells_form">
+    <div class="weui_cell">
+        <div class="weui_cell_hd">
+            <label class="weui_label">学号</label>
+        </div>
+        <div class="weui_cell_bd weui_cell_primary">
+            <input class="weui_input" type="tel" id="pw" placeholder="请输入学号">
+        </div>
+    </div>
+    <div class="weui_cell">
+        <div class="weui_cell_hd">
+            <label class="weui_label">身份证后六位</label>
+        </div>
+        <div class="weui_cell_bd weui_cell_primary">
+            <input class="weui_input" type="password" id="pw" placeholder="请输入身份证后六位">
+        </div>
+    </div>
+</div>
+<a href="javascript:submit();" class="weui_btn weui_btn_primary">按钮</a>
+<script>
+function submit(){
+	id = $("#id").val();
+	pw = $("#pw").val();
+	url = "run.php?id=" + id +"&pw=" +pw ;
+	$.get(url,function(data,status){
+		alert(data);
+	});
+}
+</script>
+
+</body>
+</html>

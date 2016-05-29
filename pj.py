@@ -44,6 +44,7 @@ def pj_normal(href):
 				br.form["yq" + str(i)] = [values[0].attrib['value']]
 			else:
 				break
+			z = z + 1
 	br.submit()
 	print "OK"
 			
