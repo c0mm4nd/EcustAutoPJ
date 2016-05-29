@@ -1,10 +1,11 @@
 # EcustAutoPJ
+##简介
 	Ecust自动评教源码
 
-#Version
+##Version
 	1.0.0
 
-#使用方法：
+##使用方法
 
 	纯Python : `python pj.py YOUR_IDxYOUR_PW`
 
