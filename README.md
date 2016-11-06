@@ -10,4 +10,4 @@ Ecust自动评教源码
 
 服务器   :  PHP服务器下直接访问index.html  
 
-浏览器	:  [ 点击进入 ]( http://cmd.ecustcic.com/Ecust/pj )
+浏览器	:  [ 点击进入 ]( http://ecust.top/EcustAutoPJ/ )
