@@ -48,6 +48,7 @@ def pj_normal(href):
 
 # add the arg in 2016-11-06
 def main(id=None, pw=None):			
+	global br
 	br = mechanize.Browser()
 	s = requests.Session()
 
@@ -95,8 +96,9 @@ def main(id=None, pw=None):
 
 		return 'Successful'
 	except Exception, e:
-		print('Exception: ' + e)
-		open('EcustAutoPJException.log', 'w').write('Exception: ' + e).close()
+		print('Exception: ')
+		print(e)
+		# open('EcustAutoPJException.log', 'w').write('Exception: ').write(e).close()
 		return "Found a Bug and Contact tel:139-6755-7527. Thanks"
 
 if __name__ == '__main__':
